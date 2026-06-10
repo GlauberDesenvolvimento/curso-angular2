@@ -1,0 +1,22 @@
+.contatos-detalhe{
+    .form-group{
+        position: relative;
+        line-height: 0.5;
+    }
+    .btn-sm{
+        line-height: 1.5;
+    }
+    .ng-valid[required]{
+        border: 1px solid green;
+    }
+    .ng-invalid.ng-touched:not(form){
+        border: 1px solid red;
+    }
+    .text-danger{
+        font-size: 0.72em;
+        position: absolute;
+        top: 5em;
+        right: 0;
+    }
+} 
+

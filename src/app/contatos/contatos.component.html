@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12 meus-contatos">
+    <h4>Meus Contatos</h4>
+
+    <div [ngClass]="classesCss" role="alert" *ngIf="mensagem">
+      <span [ngSwitch]="mensagem.tipo">
+        <strong *ngSwitchCase="danger">Erro!</strong>
+        <strong *ngSwitchCase="warning">Alerta!</strong>
+        <strong *ngSwitchCase="success">Sucesso!</strong>
+        <strong *ngSwitchDefault>Informação</strong>
+      </span>
+      {{mensagem.texto}}
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of contatos">
+          <td>{{c.nome}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.telefone}}</td>
+          <td>
+            <button class="btn btn-info btn-sm" [routerLink]="['/contatos/save', c.id]">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(c)">Detetar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

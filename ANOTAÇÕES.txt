@@ -1,0 +1,54 @@
+#INSTALAR GLOBALMENTE O ANGULAR-CLI 2
+npm install -g angular-cli
+
+#OU AS NOVAS VERSÕES
+npm install -g @angular/cli
+
+#CRIAR PROJETO
+ng new nome-do-projeto
+
+#GERAR UM COMPONENTE
+ng g c NOME_COMPONENTE
+
+#ONDE, g = generate, c = component
+
+#CRIAR DENTRO DE UMA PASTA
+ng g c pasta/nome-do-componente --flat
+
+#CRIAR DENTRO DE UMA PASTA (SUB-PASTA)
+ng g c pasta/nome-do-componente
+
+# Component
+ng g c cursos
+
+# Service
+ng g s cursos
+
+# Module
+ng g m cursos
+
+# Directive
+ng g d destaque
+
+# Pipe
+ng g p telefone
+
+# {declarations} em modulos servem para declarar os componentes, diretivas ou pipes
+
+# CommonModule serve para fornecer as diretivas do Angular2
+
+# {{ oneWayDataBinding }} [prop]={ oneWayDataBinding }
+
+# {{ eventBinding() }} (prop)={ eventBinding() }
+
+# (input)="nome = $event.target.value"
+
+# RESUMO: name="nome" [ngModel]="prop.nome" (ngModelChange)="prop.nome = $event"
+# RESUMO: [(ngModel)]="contato.nome"
+
+#CLASSES CSS 
+# ng-untouched -> ng-touched -> Visitado?
+# ng-pristine -> ng-dirty    -> Mudou?
+# ng-invalid -> ng-valid     -> Válido?
+
+# #formContato="ngForm" ngContato deve ser diferente do objeto da classe do componente

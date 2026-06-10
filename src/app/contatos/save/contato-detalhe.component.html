@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12 contatos-detalhe">
+    <h4>Salvar Contato</h4>
+    <hr>
+    <form action="" #formContato="ngForm" novalidate (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome" class="for-control-label">Nome</label><br>
+        <input type="text" class="form-control form-control-danger" id="nome" name="nome" #nome="ngModel" required [(ngModel)]="contato.nome"/>
+        <small class="form-text text-danger" [hidden]="nome.valid || nome.pristine">
+          Este campo é obrigatório
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label><br>
+        <input type="email" class="form-control" id="email" name="email" #email="ngModel" required [(ngModel)]="contato.email"/>
+        <small class="form-text text-danger" [hidden]="email.valid || email.pristine">
+          Este campo é obrigatório
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone</label><br>
+        <input type="tel" class="form-control" id="telefone" name="telefone" #telefone="ngModel" required [(ngModel)]="contato.telefone"/>
+        <small class="form-text text-danger" [hidden]="telefone.valid || telefone.pristine">
+          Este campo é obrigatório
+        </small>
+      </div>
+      <button type="submit" class="btn btn-success btn-sm" [disabled]="!formContato.form.valid">Salvar</button>
+      <a class="btn btn-secondary btn-sm" routerLink="/contatos">Voltar</a>
+      <button type="button" class="btn btn-warn btn-sm" (click)="log(formContato)">Log do objeto ngForm</button>
+    </form>
+    <br>
+    <pre><code>{{ contato | json }}</code></pre>
+  </div>
+</div>
