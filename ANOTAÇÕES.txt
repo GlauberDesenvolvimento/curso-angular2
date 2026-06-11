@@ -68,3 +68,5 @@ ng g p telefone
 # npm install -g http-server@0.12.3 (Versões antigas)
 # http-server -c-1 -o -> Vai ler o projeto dist gerado pelo angular matando o cache e já abre no navegador
 # http-server -P http://localhost:8080?
+
+# buildar projeto ng build --base-href /angular2-contatos/
