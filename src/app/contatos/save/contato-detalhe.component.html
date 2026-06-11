@@ -25,10 +25,10 @@
         </small>
       </div>
       <button type="submit" class="btn btn-success btn-sm" [disabled]="!formContato.form.valid">Salvar</button>
-      <a class="btn btn-secondary btn-sm" routerLink="/contatos">Voltar</a>
-      <button type="button" class="btn btn-warn btn-sm" (click)="log(formContato)">Log do objeto ngForm</button>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="voltar()">Voltar</button>
+      <!-- <button type="button" class="btn btn-warn btn-sm" (click)="log(formContato)">Log do objeto ngForm</button> -->
     </form>
     <br>
-    <pre><code>{{ contato | json }}</code></pre>
+    <!-- <pre><code>{{ contato | json }}</code></pre> -->
   </div>
 </div>

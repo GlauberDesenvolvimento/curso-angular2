@@ -22,6 +22,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td colspan="4" align="center" *ngIf="contatos.length == 0">Nenhum registro carregado.</td>
+        </tr>
         <tr *ngFor="let c of contatos">
           <td>{{c.nome}}</td>
           <td>{{c.email}}</td>

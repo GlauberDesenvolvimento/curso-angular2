@@ -4,15 +4,14 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing.module';
 import { ContatosModule } from './contatos/contatos.module';
 import { HttpModule } from '@angular/http';
-
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './inMemoryData.service';
-import { DialogService } from './dialog.service';
-
+import { ContatoBuscaComponent } from './contatos/busca/contato-busca.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContatoBuscaComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +20,7 @@ import { DialogService } from './dialog.service';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [
-    DialogService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

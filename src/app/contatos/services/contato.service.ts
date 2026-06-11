@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Contato } from './contato.model';
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
-import "rxjs/add/operator/toPromise";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ContatoService {
@@ -23,6 +24,24 @@ export class ContatoService {
     return this.http.get(this.contatosUrl)
       .toPromise()
       .then(response => response.json() as Contato[])
+      .catch(this.handleError);
+    // return Promise.resolve(CONTATOS);
+  }
+
+  getNextId(): Promise<number> {
+    return this.http.get(this.contatosUrl)
+      .toPromise()
+      .then(response => {
+        const contatos: Contato[] = response.json();
+        let ids = contatos.map(c => c.id);
+        let max = 0;
+        for(let i=0; i<ids.length; i++){
+          if (ids[i] > max) {
+            max = ids[i];
+          }
+        }
+        return contatos.length ? max + 1 : 1;
+      })
       .catch(this.handleError);
     // return Promise.resolve(CONTATOS);
   }
@@ -66,5 +85,10 @@ export class ContatoService {
     }).then(() => this.getContatos());
   }
   
+  search(term: string): Observable<Contato[]>{
+    return this.http
+    .get(`${this.contatosUrl}/?nome=${term}`)
+    .map((res: Response) => res.json() as Contato[])
+  }
 
 }

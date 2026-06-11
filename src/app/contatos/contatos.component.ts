@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContatoService } from './services/contato.service';
 import { Contato } from './services/contato.model';
-import { DialogService } from '../dialog.service';
 
 @Component({
   selector: 'contatos',
@@ -10,15 +9,14 @@ import { DialogService } from '../dialog.service';
 })
 export class ContatosComponent implements OnInit {
   
+  private currentTimeout: any;
   private contatoService:ContatoService;
-  private dialogService: DialogService;
-  public contatos: Contato[];
+  public contatos: Contato[] = [];
   public mensagem: {};
   public classesCss: {};
   
-  constructor(contatoService:ContatoService, dialogService: DialogService) {
+  constructor(contatoService:ContatoService) {
     this.contatoService = contatoService;
-    this.dialogService = dialogService;
   }
 
   ngOnInit():void {
@@ -34,7 +32,7 @@ export class ContatosComponent implements OnInit {
   }
 
   onDelete(contato: Contato): void{
-    this.dialogService.confirm('Deseja deletar o contato: '+ contato.nome)
+    this.confirm('Deseja deletar o contato: '+ contato.nome)
     .then((canDelete: Boolean) => {
       if(canDelete){
         this.contatoService
@@ -63,9 +61,15 @@ export class ContatosComponent implements OnInit {
     this.mensagem = mensagem;
     this.montarClasses(mensagem.tipo);
     if(mensagem.tipo != "danger"){
-      setTimeout(()=> {
+
+      if(this.currentTimeout){
+        clearTimeout(this.currentTimeout);
+      }
+
+      this.currentTimeout = setTimeout(()=> {
         this.mensagem = undefined;
       }, 3000);
+
     }
   }
 
@@ -81,6 +85,12 @@ export class ContatosComponent implements OnInit {
      * 'alert-danger': true,
      * }
      */
+  }
+
+  confirm(message?: string){
+    return new Promise(resolve => {
+        return resolve(window.confirm(message || 'Confirmar'));
+    });
   }
 
 }

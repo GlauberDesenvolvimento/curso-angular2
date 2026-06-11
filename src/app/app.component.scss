@@ -1,5 +1,9 @@
 .navbar-contatos{
-    input{
-        width: 7em;
+    .navbar-nav{
+        flex-direction: row !important;
+        a{
+            padding-right: .5rem;
+            padding-left: .5rem;
+        }
     }
 }

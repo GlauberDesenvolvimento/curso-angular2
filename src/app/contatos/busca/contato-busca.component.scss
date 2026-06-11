@@ -1,0 +1,26 @@
+.contatos-busca{
+    position: relative;
+    input{
+        max-width: 13em;
+        min-width: 7em;
+    }
+    .list-group{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 2.2em;
+        padding-top: 0.7em;
+        .contatos-busca{
+            display: none;
+        }
+    }
+    .list-group-item {
+        padding: .5rem 0.75rem;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+}
+.contatos-busca:hover .list-group{
+    display: inline-block;
+}

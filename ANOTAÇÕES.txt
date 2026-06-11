@@ -18,6 +18,9 @@ ng g c pasta/nome-do-componente --flat
 #CRIAR DENTRO DE UMA PASTA (SUB-PASTA)
 ng g c pasta/nome-do-componente
 
+#COMPONENTE O JEITO MAIS CERTO
+ng g c contatos/busca/contatoBusca --flat --module contatos/contatos.module
+
 # Component
 ng g c cursos
 
@@ -52,3 +55,16 @@ ng g p telefone
 # ng-invalid -> ng-valid     -> Válido?
 
 # #formContato="ngForm" ngContato deve ser diferente do objeto da classe do componente
+
+#RESUMO SOBRE O MÓDULO
+
+# declarations	Declara o que pertence ao módulo	Componentes, Diretivas, Pipes
+# imports	Importa recursos de outros módulos	Módulos
+# exports	Disponibiliza recursos para outros módulos	Componentes, Diretivas, Pipes, Módulos
+# providers	Registra serviços para injeção de dependência	Services/Providers
+# bootstrap	Define o componente inicial da aplicação	Componente principal
+
+# para rodar html static npm install -g http-server
+# npm install -g http-server@0.12.3 (Versões antigas)
+# http-server -c-1 -o -> Vai ler o projeto dist gerado pelo angular matando o cache e já abre no navegador
+# http-server -P http://localhost:8080?

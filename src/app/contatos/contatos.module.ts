@@ -6,6 +6,7 @@ import { ContatoRoutingModule } from './contatos.routing.module';
 import { ContatoService } from './services/contato.service';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     CommonModule,

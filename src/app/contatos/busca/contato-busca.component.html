@@ -1,0 +1,10 @@
+<form class="form-inline my-2 my-lg-0 contatos-busca">
+  <input class="form-control mr-sm-2" type="text" placeholder="Digite aqui" maxlength="23" #t (keyup)="search(t.value, $event)">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let c of contatos | async">
+      <a href="#" (click)="verDetalhe(c, $event)">{{c.nome}}</a>
+    </li>
+  </ul>
+  <!-- <button type="submit" class="btn btn-outline-light my-2 my-sm-0" type="button">Buscar</button> -->
+</form>
+

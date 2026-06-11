@@ -21,6 +21,9 @@ export class ContatoDetalheComponent implements OnInit {
     this.contatoService = contatoService;
     this.route = route;
     this.location = location;
+    this.contatoService.getNextId().then((nextId)=>{
+      this.contato = new Contato(nextId, '', '', '');
+    });
   }
 
   ngOnInit(): void{
@@ -30,8 +33,8 @@ export class ContatoDetalheComponent implements OnInit {
         this.isNew = false;
         this.contatoService.getContato(id).then((contato: Contato) => {
           this.contato = contato;
-          console.log(contato);
-          console.log(this.contato);
+          // console.log(contato);
+          // console.log(this.contato);
         });
       }else{
         this.isNew = true;
@@ -54,6 +57,10 @@ export class ContatoDetalheComponent implements OnInit {
 
   log(form){
     console.log(form);
+  }
+
+  voltar():void{
+    this.location.back();
   }
 
 }

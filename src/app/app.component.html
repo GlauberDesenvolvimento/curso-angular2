@@ -1,22 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary navbar-contatos">
   <div class="container">
     <ul class="navbar-nav">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" routerLink="/contatos" >Home</a>
+        <a class="nav-link" routerLink="/contatos" >Contatos</a>
       </li>
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" routerLink="/contatos/save">Novo</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Digite aqui">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="button">Buscar</button>
-    </form>
+    <contato-busca></contato-busca>
   </div>
-  
 </nav>
+
 
 <div class="container">
   <div class="row">
